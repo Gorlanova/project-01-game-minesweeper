@@ -17,6 +17,8 @@ function hide(section1, section2, section3) {
 };
 
 window.onload = () => {
+    document.getElementById("music").play();
+
     document.getElementById("homeLink").onclick = function () {
         show(homePage);
         hide(rulesPage, aboutPage, gamePage);
