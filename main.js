@@ -17,7 +17,9 @@ function hide(section1, section2, section3) {
 };
 
 window.onload = () => {
-    document.getElementById("music").play();
+    music.volume = 0.5;
+    soundWin.volume = 1.0;
+    soundLose.volume = 1.0;
 
     document.getElementById("homeLink").onclick = function () {
         show(homePage);
@@ -69,6 +71,13 @@ window.onload = () => {
 // Number = Continue (expand if Clear)
 // WIN = POP UP (+noise +animation ?)
 // LOSE = POP UP (+noise +animation ?)
+
+// ================
+// - SOUND SPECS
+// ================
+const music = document.getElementById("music");
+const soundWin = document.getElementById("audioWin");
+const soundLose = document.getElementById("audioLose");
 
 // ================
 // - VARIABLES
