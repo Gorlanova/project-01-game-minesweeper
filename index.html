@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- =========== -->
+    <!-- HEAD -->
+    <!-- =========== -->
+    <head>
+        <!-- =========== -->
+        <!-- META DATA -->
+        <!-- =========== -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Game : Minesweeper</title>
+
+        <!-- =========== -->
+        <!-- CSS -->
+        <!-- =========== -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap">
+    </head>
+
+    <!-- =========== -->
+    <!-- BODY -->
+    <!-- =========== -->
+    <body>
+        <!-- =========== -->
+        <!-- AUDIO FILE -->
+        <!-- =========== -->
+        <audio loop="true" autoplay="true" class="hidden" src="/Images/KeiichiSugiyama-BuggieRunningBee.mp3"></audio>
+        <audio id="audioLose" class="hidden" src="/Images/110115__ryansnook__small-explosion.wav"></audio>
+        <audio id="audioWin" class="hidden" src="/Images/258142__tuudurt__level-win.wav"></audio>
+        <!-- =========== -->
+        <!-- HEADER-->
+        <!-- =========== -->
+        <header>
+            <!-- =========== -->
+            <!-- TITLE -->
+            <!-- =========== -->
+            <div class="title">
+                <i class="fas fa-bomb"></i>
+                <h1>MINESWEEPER</h1>
+            </div>
+            <!-- =========== -->
+            <!-- NAV BAR -->
+            <!-- =========== -->
+            <nav>
+                <ul class="nav">
+                    <li>
+                        <a id="homeLink" href="#">HOME</a>
+                    </li>
+                    <li>
+                        <a id="rulesLink" href="#">RULES</a>
+                    </li>
+                    <li>
+                        <a id="aboutLink" href="#">ABOUT</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- =========== -->
+        <!-- HOME SECTION -->
+        <!-- =========== -->
+        <section id="homePage" class="home-main">
+            <article class="home-intro">
+                <i class="fas fa-bomb"></i>
+                <p>Clear the board but be careful... You're just one click away from blowing everything up !</p>
+            </article>
+            <article class="home-levels">
+                <h2>Choose difficulty</h2>
+                <div class="choose-level">
+                    <div>
+                        <a id="gameEasyLink" class="easy" href="#"><i class="fas fa-paw"></i></a>
+                        <p>Easy</p>
+                    </div>
+                    <div>
+                        <a id="gameMediumLink" class="medium" href="#"><i class="fas fa-star"></i></a>
+                        <p>Medium</p>
+                    </div>
+                    <div>
+                        <a id="gameHardLink" class="hard" href="#"><i class="fas fa-biohazard"></i></a>
+                        <p>Hard</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- =========== -->
+        <!-- RULES SECTION -->
+        <!-- =========== -->
+        <section id="rulesPage" class="rules-main hidden">
+            <article class="rules-board">
+                <img src="/Images/Screenshot 2020-01-18 at 17.10.10.png" alt="board">
+            </article>
+            <article class="rules-text">
+                <h2>HOW TO PLAY</h2>
+                <div>
+                    <span>></span>
+                    <p>The counter indicates the number of remaining unflagged mines. Harder = more mines !</p>
+                </div>
+                <div>
+                    <span>></span>
+                    <p>Click on a cell. The number you get indicates the amount of mines in the cells around it.</p>
+                </div>
+                <div>
+                    <span>></span>
+                    <p>Try to guess where mines are, and right-click the cells to flag them.</p>
+                </div>
+                <div>
+                    <span>></span>
+                    <p>If you revealed all the mine-free cells, congratulations : you WIN !</p>
+                </div>
+                <div>
+                    <span>></span>
+                    <p>If you click on a mine... BOOM !</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- =========== -->
+        <!-- ABOUT SECTION -->
+        <!-- =========== -->
+        <section id="aboutPage" class="about-main hidden">
+            <article class="about-avatar">
+                <img src="/Images/Mine.png" alt="avatar">
+            </article>
+            <article class="about-info">
+                <h2>Player 1</h2>
+                <div>
+                    <span>></span>
+                    <p>Nina Gautreau</p>
+                </div>
+                <div>
+                    <span>></span>
+                    <p>27 years-old, Paris</p>
+                </div>
+                <div>
+                    <span>></span>
+                    <p>Ironhack - Web Dev 01.20</p>
+                </div>
+                <div>
+                    <span>></span>
+                    <p>This is my first project !</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- =========== -->
+        <!-- GAME SECTION -->
+        <!-- =========== -->
+        <section id="gamePage" class="game-main hidden">
+            <article>
+                <div>
+                    <button id="button" type="button" class="game-button start-button"></button>
+                </div>
+            </article>
+            <article class="board">
+                <div class="board-border">
+                    <div class="board-box">
+                        <div id="levelChosen" class="board-bar"></div>
+                        <div id="board" class="board-grid">
+                            <!-- Board will Generate here -->
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="game-stats">
+                <div class="game-timer">
+                    <h3>TIMER :</h3>
+                    <span id="timer"></span>
+                </div>
+                <div class="game-mines">
+                    <h3>MINES LEFT :</h3>
+                    <span id="mines"></span>
+                </div>
+            </article>
+        </section>
+
+        <!-- =========== -->
+        <!-- FOOTER -->
+        <!-- =========== -->
+        <footer>
+            <p>&copy; 2020 My brain</p>
+        </footer>
+
+        <!-- =========== -->
+        <!-- JAVASCRIPT -->
+        <!-- =========== -->
+        <div id="modalWin" class="modal hidden"><span>TADAAA</span><button id="closeWin" type="button">X</button></div>
+        <div id="modalLose" class="modal hidden"><span>YOU BIG LOSER</span><button id="closeLose" type="button">X</button class="closeModal"></div>
+
+        <!-- =========== -->
+        <!-- JAVASCRIPT -->
+        <!-- =========== -->
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
