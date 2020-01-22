@@ -299,7 +299,7 @@ function flagCell(cell) {
     if (cell.classList == "cell cell-back") {
         cell.classList.remove("cell-back");
         cell.classList.add("cell-flag");
-        minesStat.innerHTML -= 1;
+        minesStat.innerHTML = Number(minesStat.innerHTML) - 1;
         checkFlag(cell);
     } else if (cell.classList == "cell cell-flag") {
         cell.classList.remove("cell-flag");
@@ -332,11 +332,11 @@ button.addEventListener('click', () => {
     checkButton();
 });
 
-closeWin.addEventListener('click', ()=>{
+closeWin.addEventListener('click', () => {
     modalWin.classList.add("hidden")
 });
 
-closeLose.addEventListener('click', ()=>{
+closeLose.addEventListener('click', () => {
     modalLose.classList.add("hidden")
 });
 

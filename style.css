@@ -6,7 +6,8 @@
 /* ========= */
 /* BODY */
 /* ========= */
-html, body{
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -14,14 +15,14 @@ html, body{
     font-family: 'Press Start 2P', cursive;
 }
 
-.hidden{
+.hidden {
     display: none !important;
 }
 
 /* ========= */
 /* HEADER */
 /* ========= */
-header{
+header {
     padding: 0 40px;
     display: flex;
     flex-wrap: wrap;
@@ -35,18 +36,18 @@ header{
     border-image-slice: 1;
 }
 
-.title{
+.title {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.fa-bomb{
+.fa-bomb {
     font-size: 3em;
     margin-right: 30px;
 }
 
-.nav{
+.nav {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -55,12 +56,12 @@ header{
     font-weight: bold;
 }
 
-.nav>li{
+.nav>li {
     padding: 0;
     margin: 0 0 0 30px;
 }
 
-.nav>li>a{
+.nav>li>a {
     text-decoration: none;
     font-size: 1em;
     margin-left: 5px;
@@ -70,7 +71,7 @@ header{
 /* ========= */
 /* HOME - MAIN */
 /* ========= */
-.home-main{
+.home-main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -84,28 +85,33 @@ header{
 }
 
 @-webkit-keyframes slide {
-    from { background-position: 0 0; }
-    to { background-position: 0 400px; }
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 400px;
+    }
 }
 
-.home-intro{
+.home-intro {
     padding: 40px 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.home-intro>i{
+.home-intro>i {
     font-size: 8em;
 }
 
-.home-intro>p{
+.home-intro>p {
     width: 40%;
     text-align: left;
     line-height: 150%;
 }
 
-.home-levels{
+.home-levels {
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -113,7 +119,7 @@ header{
     align-items: center;
 }
 
-.choose-level{
+.choose-level {
     padding: 40px 0;
     width: 100%;
     display: flex;
@@ -121,14 +127,14 @@ header{
     align-items: center;
 }
 
-.choose-level>div{
+.choose-level>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.choose-level>div>a{
+.choose-level>div>a {
     text-decoration: none;
     font-size: 5em;
     transition: linear 0.1s;
@@ -136,7 +142,7 @@ header{
 }
 
 
-.choose-level>div>a:hover{
+.choose-level>div>a:hover {
     color: white;
     font-size: 6em;
 }
@@ -144,7 +150,7 @@ header{
 /* ========= */
 /* FOOTER */
 /* ========= */
-footer{
+footer {
     padding: 0 40px;
     display: flex;
     justify-content: center;
@@ -160,7 +166,7 @@ footer{
 /* ========= */
 /* RULES - MAIN */
 /* ========= */
-.rules-main{
+.rules-main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,41 +177,41 @@ footer{
     color: white;
 }
 
-.rules-board>img{
+.rules-board>img {
     width: 450px;
     margin-right: 100px;
 }
 
-.rules-text{
+.rules-text {
     width: 570px;
 }
 
-h2{
+h2 {
     display: inline-block;
-    padding : 10px;
-    border : 5px solid;
+    padding: 10px;
+    border: 5px solid;
     border-image: linear-gradient(to left, #ff0000 0%, #ffff00 20%, #00ff00 40%, #00ffff 60%, #0000ff 80%, #ff00ff 100%);
     border-image-slice: 1;
 }
 
-.rules-text>div{
+.rules-text>div {
     display: flex;
     justify-content: start;
     align-items: baseline;
 }
 
-.rules-text>div>span{
+.rules-text>div>span {
     margin-right: 10px;
 }
 
-.rules-text>div>p{
+.rules-text>div>p {
     line-height: 150%;
 }
 
 /* ========= */
 /* ABOUT - MAIN */
 /* ========= */
-.about-main{
+.about-main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -216,30 +222,30 @@ h2{
     color: white;
 }
 
-.about-avatar>img{
+.about-avatar>img {
     width: 200px;
     height: 400px;
 }
 
-.about-info>div{
+.about-info>div {
     display: flex;
     justify-content: start;
     align-items: baseline;
     width: 450px;
 }
 
-.about-info>div>span{
+.about-info>div>span {
     margin-right: 10px;
 }
 
-.about-info>div>p{
+.about-info>div>p {
     line-height: 150%;
 }
 
 /* ========= */
 /* GAME - MAIN */
 /* ========= */
-.game-main{
+.game-main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -250,38 +256,38 @@ h2{
     color: white;
 }
 
-.game-button{
+.game-button {
     background-color: transparent;
     color: white;
     padding: 20px;
     font-size: 1em;
     font-family: 'Press Start 2P', cursive;
-    border : 5px solid;
+    border: 5px solid;
     border-image: linear-gradient(to left, #ff0000 0%, #ffff00 20%, #00ff00 40%, #00ffff 60%, #0000ff 80%, #ff00ff 100%);
     border-image-slice: 1;
 }
 
-.start-button:after{
+.start-button:after {
     content: "START";
 }
 
-.reset-button:after{
+.reset-button:after {
     content: "RESET";
 }
 
-.board-border{
-    padding : 10px;
-    border : 5px solid;
+.board-border {
+    padding: 10px;
+    border: 5px solid;
     border-image: linear-gradient(to left, #ff0000 0%, #ffff00 20%, #00ff00 40%, #00ffff 60%, #0000ff 80%, #ff00ff 100%);
     border-image-slice: 1;
 }
 
-.board-box{
+.board-box {
     padding: 5px;
     background-color: white;
 }
 
-.board-bar{
+.board-bar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -291,7 +297,7 @@ h2{
     margin-bottom: 10px;
 }
 
-.board-grid{
+.board-grid {
     display: grid;
     grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
     grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
@@ -299,7 +305,7 @@ h2{
     grid-row-gap: 5px;
 }
 
-.cell{
+.cell {
     background-color: black;
     display: flex;
     justify-content: center;
@@ -309,7 +315,7 @@ h2{
     box-sizing: border-box;
 }
 
-.cell-back{
+.cell-back {
     color: dimgray;
     border-bottom-color: dimgray;
     border-right-color: dimgray;
@@ -317,85 +323,85 @@ h2{
     border-top-color: lightgray;
 }
 
-.cell-back:after{
+.cell-back:after {
     content: "?";
 }
 
-.cell-0{
+.cell-0 {
     color: dimgray;
     background-color: dimgray;
     border-color: dimgray;
 }
 
-.cell-0:after{
+.cell-0:after {
     content: "0";
 }
 
-.cell-1{
+.cell-1 {
     color: #0000ff;
 }
 
-.cell-1:after{
+.cell-1:after {
     content: "1";
 }
 
-.cell-2{
+.cell-2 {
     color: #00ffff;
 }
 
-.cell-2:after{
+.cell-2:after {
     content: "2";
 }
 
-.cell-3{
+.cell-3 {
     color: #00ff00;
 }
 
-.cell-3:after{
+.cell-3:after {
     content: "3";
 }
 
-.cell-4{
+.cell-4 {
     color: #ffff00;
 }
 
-.cell-4:after{
+.cell-4:after {
     content: "4";
 }
 
-.cell-5{
+.cell-5 {
     color: #ffffff;
 }
 
-.cell-5:after{
+.cell-5:after {
     content: "5";
 }
 
-.cell-6{
+.cell-6 {
     color: #ffffff;
 }
 
-.cell-6:after{
+.cell-6:after {
     content: "6";
 }
 
-.cell-7{
+.cell-7 {
     color: #ffffff;
 }
 
-.cell-7:after{
+.cell-7:after {
     content: "7";
 }
 
-.cell-8{
+.cell-8 {
     color: #ffffff;
 }
 
-.cell-8:after{
+.cell-8:after {
     content: "?";
 }
 
-.cell-9{
+.cell-9 {
     background-color: #ff0000;
     background-image: url(./Images/mine-icon.png);
     background-size: 30px 30px;
@@ -403,7 +409,7 @@ h2{
     background-position: center center;
 }
 
-.cell-flag{
+.cell-flag {
     color: #ff00ff;
     border-bottom-color: dimgray;
     border-right-color: dimgray;
@@ -411,35 +417,35 @@ h2{
     border-top-color: lightgray;
 }
 
-.cell-flag:after{
+.cell-flag:after {
     content: "F";
 }
 
-.game-stats{
+.game-stats {
     padding: 10px 20px;
-    border : 5px solid;
+    border: 5px solid;
     border-image: linear-gradient(to left, #ff0000 0%, #ffff00 20%, #00ff00 40%, #00ffff 60%, #0000ff 80%, #ff00ff 100%);
     border-image-slice: 1;
 }
 
-.game-timer{
+.game-timer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.game-timer>span{
+.game-timer>span {
     margin-left: 10px;
     font-size: 1.2em;
 }
 
-.game-mines{
+.game-mines {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.game-mines>span{
+.game-mines>span {
     margin-left: 10px;
     font-size: 1.2em;
 }
@@ -447,7 +453,7 @@ h2{
 /* ========= */
 /* POP UP */
 /* ========= */
-.modal{
+.modal {
     width: 500px;
     height: 400px;
     position: fixed;
@@ -461,12 +467,12 @@ h2{
     text-align: center;
     color: black;
     background-color: white;
-    border : 5px solid;
+    border: 5px solid;
     border-image: linear-gradient(to left, #ff0000 0%, #ffff00 20%, #00ff00 40%, #00ffff 60%, #0000ff 80%, #ff00ff 100%);
     border-image-slice: 1;
 }
 
-.modal>button{
+.modal>button {
     background-color: transparent;
     color: white;
     padding: 20px;
