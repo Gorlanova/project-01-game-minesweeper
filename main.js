@@ -17,7 +17,9 @@ function hide(section1, section2, section3) {
 };
 
 window.onload = () => {
-    document.getElementById("music").play();
+    music.volume = 0.5;
+    soundWin.volume = 1.0;
+    soundLose.volume = 1.0;
 
     document.getElementById("homeLink").onclick = function () {
         show(homePage);
@@ -62,13 +64,11 @@ window.onload = () => {
 };
 
 // ================
-// - TO DO LIST
+// - SOUND SPECS
 // ================
-// Click = Check if mine + Reveal tile + Check if over
-// Mine = GAME OVER
-// Number = Continue (expand if Clear)
-// WIN = POP UP (+noise +animation ?)
-// LOSE = POP UP (+noise +animation ?)
+const music = document.getElementById("music");
+const soundWin = document.getElementById("audioWin");
+const soundLose = document.getElementById("audioLose");
 
 // ================
 // - VARIABLES
@@ -263,6 +263,71 @@ function checkOver(cell) {
 // ================
 // - REVEAL CELL
 // ================
+function uncoverNeighbours(cell){
+    let cells = document.querySelectorAll(".cell");
+    let index = [...cells].indexOf(cell);
+
+    let cellNW = cells.item(index-11);
+    let cellNN = cells.item(index-10);
+    let cellNE = cells.item(index-9);
+    let cellWW = cells.item(index-1);
+    let cellEE = cells.item(index+1);
+    let cellSW = cells.item(index+9);
+    let cellSS = cells.item(index+10);
+    let cellSE = cells.item(index+11);
+
+    if (index===0){
+        cellEE.className==="cell cell-back" && revealCell(cellEE);
+        cellSS.className==="cell cell-back" && revealCell(cellSS); 
+        cellSE.className==="cell cell-back" && revealCell(cellSE);
+    } else if (index>0 && index <9){
+        cellWW.className==="cell cell-back" && revealCell(cellWW); 
+        cellEE.className==="cell cell-back" && revealCell(cellEE); 
+        cellSW.className==="cell cell-back" && revealCell(cellSW); 
+        cellSS.className==="cell cell-back" && revealCell(cellSS); 
+        cellSE.className==="cell cell-back" && revealCell(cellSE);
+    } else if (index===9){
+        cellWW.className==="cell cell-back" && revealCell(cellWW);
+        cellSW.className==="cell cell-back" && revealCell(cellSW); 
+        cellSS.className==="cell cell-back" && revealCell(cellSS);
+    } else if (index===10 || index===20 || index===30 || index===40 || index===50 || index===60 || index===70 || index===80){
+        cellNN.className==="cell cell-back" && revealCell(cellNN); 
+        cellNE.className==="cell cell-back" && revealCell(cellNE);
+        cellEE.className==="cell cell-back" && revealCell(cellEE);
+        cellSS.className==="cell cell-back" && revealCell(cellSS); 
+        cellSE.className==="cell cell-back" && revealCell(cellSE);
+    } else if (index===19 || index===29 || index===39 || index===49|| index===59 || index===69 || index===79 || index===89){
+        cellNW.className==="cell cell-back" && revealCell(cellNW);
+        cellNN.className==="cell cell-back" && revealCell(cellNN);
+        cellWW.className==="cell cell-back" && revealCell(cellWW);
+        cellSW.className==="cell cell-back" && revealCell(cellSW); 
+        cellSS.className==="cell cell-back" && revealCell(cellSS);
+    } else if (index===90){
+        cellNN.className==="cell cell-back" && revealCell(cellNN); 
+        cellNE.className==="cell cell-back" && revealCell(cellNE);
+        cellEE.className==="cell cell-back" && revealCell(cellEE);
+    } else if (index>90 && index<99){
+        cellNW.className==="cell cell-back" && revealCell(cellNW);
+        cellNN.className==="cell cell-back" && revealCell(cellNN); 
+        cellNE.className==="cell cell-back" && revealCell(cellNE); 
+        cellWW.className==="cell cell-back" && revealCell(cellWW); 
+        cellEE.className==="cell cell-back" && revealCell(cellEE);
+    } else if (index===99){
+        cellNW.className==="cell cell-back" && revealCell(cellNW);
+        cellNN.className==="cell cell-back" && revealCell(cellNN);
+        cellWW.className==="cell cell-back" && revealCell(cellWW);
+    } else {
+        cellNW.className==="cell cell-back" && revealCell(cellNW);
+        cellNN.className==="cell cell-back" && revealCell(cellNN); 
+        cellNE.className==="cell cell-back" && revealCell(cellNE); 
+        cellWW.className==="cell cell-back" && revealCell(cellWW); 
+        cellEE.className==="cell cell-back" && revealCell(cellEE); 
+        cellSW.className==="cell cell-back" && revealCell(cellSW); 
+        cellSS.className==="cell cell-back" && revealCell(cellSS); 
+        cellSE.className==="cell cell-back" && revealCell(cellSE); 
+    };
+};
+
 function findValue(cell) {
     let x = cell.getAttribute("x");
     let y = cell.getAttribute("y");
@@ -273,6 +338,9 @@ function findValue(cell) {
 function revealCell(cell) {
     findValue(cell);
     unrevealed -= 1;
+    if (cell.classList=="cell cell-0"){
+        uncoverNeighbours(cell);
+    };
 };
 
 // ================
@@ -290,7 +358,7 @@ function flagCell(cell) {
     if (cell.classList == "cell cell-back") {
         cell.classList.remove("cell-back");
         cell.classList.add("cell-flag");
-        minesStat.innerHTML -= 1;
+        minesStat.innerHTML = Number(minesStat.innerHTML) - 1;
         checkFlag(cell);
     } else if (cell.classList == "cell cell-flag") {
         cell.classList.remove("cell-flag");
@@ -323,11 +391,11 @@ button.addEventListener('click', () => {
     checkButton();
 });
 
-closeWin.addEventListener('click', ()=>{
+closeWin.addEventListener('click', () => {
     modalWin.classList.add("hidden")
 });
 
-closeLose.addEventListener('click', ()=>{
+closeLose.addEventListener('click', () => {
     modalLose.classList.add("hidden")
 });
 
