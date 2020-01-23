@@ -208,6 +208,7 @@ function launchGame() {
     calcNumbers(newGame);
     countCells();
     launchTimer();
+    minesStat.innerHTML = minesAmount;
 };
 
 // ================
@@ -220,6 +221,7 @@ function resetGame() {
     correctFlags = 0;
     grid.innerHTML = '';
     stopTimer();
+    minesStat.innerHTML = 0;
 };
 
 // ================
