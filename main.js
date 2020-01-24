@@ -17,11 +17,15 @@ function hide(section1, section2, section3) {
 };
 
 window.onload = () => {
-    music.volume = 0.5;
+    music.volume = 0.2;
     soundWin.volume = 1.0;
-    soundLose.volume = 1.0;
+    soundLose.volume = 0.6;
 
     document.getElementById("homeLink").onclick = function () {
+        show(homePage);
+        hide(rulesPage, aboutPage, gamePage);
+    };
+    document.getElementById("logo").onclick = function () {
         show(homePage);
         hide(rulesPage, aboutPage, gamePage);
     };
@@ -41,6 +45,7 @@ window.onload = () => {
         boardSize = [10, 10];
         minesAmount = 15;
         minesStat.innerHTML = minesAmount;
+        resetGame();
     };
     document.getElementById("gameMediumLink").onclick = function () {
         show(gamePage);
@@ -50,6 +55,7 @@ window.onload = () => {
         boardSize = [10, 10];
         minesAmount = 25;
         minesStat.innerHTML = minesAmount;
+        resetGame();
 
     };
     document.getElementById("gameHardLink").onclick = function () {
@@ -60,6 +66,7 @@ window.onload = () => {
         boardSize = [10, 10];
         minesAmount = 35;
         minesStat.innerHTML = minesAmount;
+        resetGame();
     };
 };
 
@@ -203,6 +210,8 @@ function stopTimer() {
 // - LAUNCH GAME
 // ================
 function launchGame() {
+    button.classList.remove("start-button");
+    button.classList.add("reset-button");
     createMap(newGame, boardSize[0], boardSize[1]);
     placeMines(newGame, minesAmount);
     calcNumbers(newGame);
@@ -215,6 +224,8 @@ function launchGame() {
 // - RESET GAME
 // ================
 function resetGame() {
+    button.classList.remove("reset-button");
+    button.classList.add("start-button");
     newGame = [];
     cellsCount = 0;
     unrevealed = 0;
@@ -230,12 +241,8 @@ function resetGame() {
 function checkButton() {
     if (button.classList == "game-button start-button") {
         launchGame();
-        button.classList.remove("start-button");
-        button.classList.add("reset-button");
     } else if (button.classList == "game-button reset-button") {
         resetGame();
-        button.classList.remove("reset-button");
-        button.classList.add("start-button");
     };
 };
 
@@ -376,11 +383,13 @@ function endGame(value) {
     if (value === "LOSE") {
         document.getElementById("audioLose").play();
         modalLose.classList.remove("hidden");
+        minesStat.innerHTML = 0;
         revealMap();
         stopTimer();
     } else if (value === "WIN") {
         document.getElementById("audioWin").play();
         modalWin.classList.remove("hidden");
+        minesStat.innerHTML = 0;
         revealMap();
         stopTimer();
     };
@@ -403,8 +412,10 @@ closeLose.addEventListener('click', () => {
 
 board.addEventListener('click', (e) => {
     let cell = e.target;
-    revealCell(cell);
-    checkOver(cell);
+    if (cell.className!=="cell cell-flag"){
+        revealCell(cell);
+        checkOver(cell);
+    } else return false;
 });
 
 board.addEventListener('contextmenu', (e) => {

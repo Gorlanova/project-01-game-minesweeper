@@ -36,10 +36,12 @@ header {
     border-image-slice: 1;
 }
 
-.title {
+.title>a{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: black;
 }
 
 .fa-bomb {
